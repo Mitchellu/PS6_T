@@ -22,12 +22,14 @@ import javafx.beans.property.StringProperty;
 public class Person_Test {
 		
 	private static PersonDomainModel person1;
-	private static UUID person1UUID = UUID.randomUUID();			
 	
+	private static UUID person1UUID = UUID.randomUUID();
+
 	@BeforeClass
 	public static void personInstance() throws Exception{
 		
 		Date person1Birth = null;
+	
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -50,6 +52,33 @@ public class Person_Test {
 		person1.setPostalCode(21921);
 		
 	}
+	
+	@Test  
+	public void addPT() {
+		PersonDAL.addPerson(person1);
+	}
+	
+	@Test
+	public void getPT() {  
+		PersonDAL.getPerson(person1UUID);  
+	}
+	
+	@Test 
+	public void deletePT() {  
+		PersonDAL.deletePerson(person1UUID); 
+	}
+	
+	@Test
+	public void updatePT() {
+		PersonDAL.updatePerson(person1);
+	}
+	
+	@Test
+	public void test(){
+		assertTrue(1==1);
+		
+	}
+	
 	
 	
 
